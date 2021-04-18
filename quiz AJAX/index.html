@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    
+
+</head>
+<body>
+    
+    
+    <div id="quiz">
+        <div class="quiz_timer" style="margin-left: 85%;">
+            <p id="countdown">10:00</p>
+          </div>
+        <div id="question-title">
+        </div>
+        <div id="choices"></div>
+        <button id="next-question" type="button" class="btn btn-info">Next</button>
+    </div>   
+    
+    
+
+<script src="timer.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+<script src="Quiz.js"></script>
+
+
+<script id="choices-template" type="text/x-handlebars-template">
+        {{#each choices}}
+        <div class="choice">
+            <input type="radio" name="choices" id="choice{{@index}}" value="{{@index}}">
+            <label for="choice{{@index}}">{{ @this }}</label>
+        </div>
+        {{/each}}
+</script>
+<script  id="title-template" type="text/x-handlebars-template">
+    {{ title }}
+</script>
+
+<script  id="finalScore-template" type="text/x-handlebars-template">
+    <div class="wrapper">
+        <div style="text-align: center;">
+           <i class="fas fa-award fa-5x"></i>
+           <h3 class="username">well done!! <span class="name"></span></h3>
+        </div>
+    </div>
+    <h2 id="finalScore">You've scored {{ totalScore }} out of {{ questionsLength }}!</h2>
+</script>
+
+</body>
+</html>
